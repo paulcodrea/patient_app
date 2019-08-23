@@ -1,0 +1,82 @@
+<!-- <table ">
+
+     <tr>
+      <td>Id</td>
+      <td>Patient First Name</td>
+      <td>Patient Last Name</td>
+      <td>Birth date</td>
+      <td>CNP</td>
+      <td>Sex</td>
+      <td>City</td>
+      <td>Country</td>
+      <td>Phone number</td>
+    </tr>
+  
+    <tr *ngFor='let patient of patientList'>
+      <td>{{patient.id}}</td>
+      <td>{{patient.firstName}}</td>
+      <td>{{patient.lastName}}</td>
+      <td>{{patient.birthDate}}</td>
+      <td>{{patient.cnp}}</td>
+      <td>{{patient.sex}}</td>
+      <td>{{patient.city}}</td>
+      <td>{{patient.country}}</td>
+      <td>{{patient.phoneNumber}}</td>
+    </tr>
+  </table> -->
+
+  <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+      
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Id. </th>
+            <td mat-cell *matCellDef="let patient"> {{patient.id}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef> First Name </th>
+            <td mat-cell *matCellDef="let patient"> {{patient.firstName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="lastName">
+                <th mat-header-cell *matHeaderCellDef> Last Name </th>
+                <td mat-cell *matCellDef="let patient"> {{patient.lastName}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="birthDate">
+                <th mat-header-cell *matHeaderCellDef> Birth Date </th>
+                <td mat-cell *matCellDef="let patient"> {{patient.birthDate}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="cnp">
+                <th mat-header-cell *matHeaderCellDef> CNP </th>
+                <td mat-cell *matCellDef="let patient"> {{patient.cnp}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="sex">
+                <th mat-header-cell *matHeaderCellDef> Sex </th>
+                <td mat-cell *matCellDef="let patient"> {{patient.sex}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="city">
+                <th mat-header-cell *matHeaderCellDef> City </th>
+                <td mat-cell *matCellDef="let patient"> {{patient.city}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="country">
+                <th mat-header-cell *matHeaderCellDef> Country </th>
+                <td mat-cell *matCellDef="let patient"> {{patient.country}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="phoneNumber">
+                <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+                <td mat-cell *matCellDef="let patient"> {{patient.phoneNumber}} </td>
+          </ng-container>
+
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
