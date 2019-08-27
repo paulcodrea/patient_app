@@ -1,0 +1,46 @@
+<div class="example-container">
+  <form class="example-container" [formGroup]="options" (ngSubmit)="createPatient()">
+      <mat-dialog-content>
+      <mat-form-field >
+            <input matInput formControlName="firstName" placeholder="First name">
+      </mat-form-field>
+      <mat-form-field >
+            <input matInput formControlName="lastName" placeholder="Last name">
+      </mat-form-field>
+      <mat-form-field >
+            <input matInput formControlName="birthDate" placeholder="Birth Date">
+      </mat-form-field>
+      <mat-form-field >
+            <input matInput formControlName="cnp" placeholder="CNP">
+      </mat-form-field>
+      <mat-form-field >
+            <input matInput formControlName="sex" placeholder="Sex">
+      </mat-form-field>
+      <!-- <div>
+      <label>Sex: </label>
+      <mat-radio-group>
+            <mat-radio-button value="MALE">MALE</mat-radio-button>
+            <mat-radio-button value="FEMALE">FEMALE</mat-radio-button>
+            <mat-radio-button value="UNDEFINED">UNDEFINED</mat-radio-button>
+      </mat-radio-group></div> -->
+      <mat-form-field >
+            <input matInput formControlName="city" placeholder="City">
+      </mat-form-field>
+      <mat-form-field>
+            <input matInput formControlName="country" placeholder="Country">
+      </mat-form-field>
+      <mat-form-field >
+            <input matInput formControlName="phoneNumber" placeholder="Phone number">
+      </mat-form-field>
+</mat-dialog-content>
+
+      <mat-dialog-actions>
+            <button type="submit" mat-button class='button_nav' cdkFocusInitial>Submit Patient</button><br>
+            <button mat-button mat-dialog-close class="button_nav" (click)='closeDialog()'>Close</button>
+      </mat-dialog-actions>
+      
+</form>
+
+     
+</div>
+

@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModelPatient } from '../model/model-patient';
 import { PatientService } from '../service/patient.service';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
+import { PatientAddComponent } from '../commands/patient-add/patient-add.component';
 
 @Component({
   selector: 'app-patient-list',
@@ -10,25 +11,24 @@ import { MatTableDataSource, MatPaginator } from '@angular/material';
 })
 export class PatientListComponent implements OnInit {
 
-  patientList: ModelPatient[] = [];
   errorMessage: string = '';
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'birthDate', 'cnp', 'sex', 'city', 'country', 
-        'phoneNumber'];
-  dataSource = new MatTableDataSource<ModelPatient>(this.patientList);
+        'phoneNumber', 'editPatient', 'deletePatient'];
+  dataSource: MatTableDataSource<ModelPatient>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   
-  constructor(private patientService: PatientService) { }
+  constructor(private patientService: PatientService, 
+              private dialog: MatDialog) { }
+
   
   ngOnInit(): void{
-
-    this.patientService.getPatients().subscribe({
-      next: data => this.patientList = data,
-      error: err => this.errorMessage = err
-    });
-
-    this.dataSource.paginator = this.paginator;
- 
+    this.patientService.getPatients().subscribe(
+      patients  => {
+        this.dataSource = new MatTableDataSource<ModelPatient>(patients);
+        this.dataSource.paginator = this.paginator;
+      }
+    );
   }
 
 }

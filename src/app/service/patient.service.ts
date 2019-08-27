@@ -18,11 +18,11 @@ export class PatientService {
     return this.http.get<ModelPatient[]>(this.patientUrl);
   }
 
-  // addPatient(newPatient: ModelPatient): Observable<ModelPatient[]>{
-  //   return this.http.post<ModelPatient[]>(this.patientUrl, newPatient, {
-  //     headers: new HttpHeaders({'Content-Type': 'application/json'})
-  //   });
-  // }
+  createPatient(newPatient: ModelPatient): Observable<ModelPatient>{
+    // const headers = new HttpHeaders({'Content-Type': 'application/json'});
+
+    return this.http.post<ModelPatient>('http://localhost:8080/patient/create', newPatient);
+  }
 
   // updatePatient(updatedPatient: ModelPatient): Observable<void>{
   //   return this.http.put<void>(`http://localhost:8080/patient/${updatedPatient.id}`, updatedPatient, {

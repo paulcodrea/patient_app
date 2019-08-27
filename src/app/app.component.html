@@ -1,3 +1,11 @@
-<app-patient-list></app-patient-list>
+<nav class='navbar navbar-expand navbar-light bg-light'>
+    <a class='navbar-brand'>{{pageTitle}}</a>
 
+    <a mat-raised-button class='button_nav' [routerLink]="['/welcome']">Home</a>    
+    <a mat-raised-button class='button_nav' (click)="openDialog()">Add patient</a><p> </p>
 
+</nav>
+
+<div class='container'>
+    <router-outlet></router-outlet>
+</div>

@@ -1,7 +1,9 @@
 import { PatientSex } from '../enums/patient-sex.enum';
+import { ModelAppointment } from './model-appointment';
 
 export interface ModelPatient {
-    id: number;
+
+    id?: number;
     firstName: string;
     lastName: string;
     birthDate: Date;
@@ -10,4 +12,5 @@ export interface ModelPatient {
     city: string;
     country: string;
     phoneNumber: number;
+    appointments?: Array<ModelAppointment>;
 }
